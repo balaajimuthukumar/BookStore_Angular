@@ -83,6 +83,9 @@ export class PurchaseDetailsComponent {
       );
       this.products.push(book);
       // console.log( this.products);
+
+      this.selectedItem = {};
+      this.value1 = 0;
     } else {
       
     }
@@ -96,6 +99,11 @@ export class PurchaseDetailsComponent {
 
   onSubmit(){
     this.completePurchase();
+
+    this.products.forEach((items,index)=>{
+      this.removetoValue(index);
+    })
+
   }
 
   nextPage(page:string){
@@ -129,7 +137,7 @@ export class PurchaseDetailsComponent {
         "isbn": item.isbn,
         "title": item.title,
         "sellingPrice": item.sellingPrice,
-        "inventory":item.inventory - this.qty[index]
+        "inventory":item.inventory + this.qty[index]
       });
 
       //to use it later for updating the inventory
@@ -142,12 +150,12 @@ export class PurchaseDetailsComponent {
 
       purchaseDetail.purchaseDetails.push(this.purDetails[(this.purDetails.length-1)]);
     });
-
+    console.log(inventoryDetails);
     this.http.post(this.api.purchaseURL,purchaseDetail).subscribe((response)=>{
       console.log(response);
-
+      //updating the inventory via separate API
       inventoryDetails.forEach((items,index)=>{
-        this.http.post(this.api.bookURL+'/'+items.bookid,items).subscribe((response)=>{
+        this.http.put(this.api.bookURL+'/'+items.bookId,items).subscribe((response)=>{
           console.log(response);
         }, (error)=>{
           console.log(error);
