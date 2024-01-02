@@ -1,0 +1,22 @@
+
+<div class="grid">
+  <!-- The entire page is divided into 12 columns by default -->
+  
+  <!-- Header and Navigation -->
+  <div class="col-12">
+    <app-header></app-header>
+    <app-navigation (sidebarVisible)="toggleSideBar($event)"></app-navigation>
+  </div>
+
+  <!-- Left Menu -->
+  <div class="col-2">
+    <app-left-menu #navsidemenu></app-left-menu>
+  </div>
+  
+   <router-outlet ></router-outlet>
+
+  <!-- Footer -->
+  <div class="col-12">
+    <app-footer></app-footer>
+  </div>
+</div>

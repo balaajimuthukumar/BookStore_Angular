@@ -1,0 +1,85 @@
+<div class="col-12">
+    <p class="text-center font-bold text-3xl">Contact</p>
+</div>
+<form [formGroup]="contactForm" (ngSubmit)="nextPage('Sales/billing')">
+    <div class="grid ml-6 mt-6 mr-6">
+        <div class="formgrid grid">
+            <div class="field col-12 md:col-4 ">
+                <label for="firstName" class="form-label">First Name</label>
+                <input id="firstName" type="text" class="form-control text-base text-color bg-white-alpha-30 p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" 
+                formControlName="firstName">
+            </div>
+            
+            <div class="field col-12 md:col-4 ">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input id="lastName"   type="text" class="form-control text-base text-color bg-white-alpha-30 p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+                formControlName="lastName" >
+            </div>
+            
+            <div class="field-col-12 md:col-4 ">
+                <label for="phonenumber"  class="form-label" >Phone Number</label>
+                <input id="phonenumber"  type="string" rows="4"  class="form-control text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+                formControlName="phonenumber" >
+            </div>
+            
+            <div class="field-col-12 md:col-4 ">
+                <label for="email" class="form-label">Email</label>
+                <input id="email" type="email" rows="4"  class="form-contol  text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+                formControlName="email" >
+            </div>
+            
+            <div class="field col-12 md:col-4 ">
+                <label for="addressLine1" class="form-label" >Address Line 1</label>
+                <textarea id="addressLine1" type="text" rows="4" class="form-control  text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+                formControlName="addressLine1" ></textarea>
+            </div>
+            
+            <div class="field col-12 md:col-4 ">
+                <label for="addressLine2" class="form-label" >Address Line 2</label>
+                <textarea id="addressLine2" type="text" rows="4" class="form-control  text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+                formControlName="addressLine2"  ></textarea>
+            </div>
+            
+            <div class="field col-12 md:col-4 ">
+                <label for="city" class="form-label" >City</label>
+                <select id="city"  class="form-contol  w-full text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round outline-none focus:border-primary" style="appearance: auto"
+                formControlName="city" >
+                    <option>Chennai</option>
+                    <option>Salem</option>
+                    <option>Madurai</option>
+                    <option>Coimbatore</option>
+                    <option>Thanjavur</option>
+                </select>
+            </div>
+
+            <div class="field col-12 md:col-3 form-group">
+                <label for="state" class="form-label" >State</label>
+                <select id="state"  class="form-contol  w-full text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round outline-none focus:border-primary" style="appearance: auto"
+                formControlName="state" >
+                    <option>Tamil nadu</option>
+                    <option>Gujarat</option>
+                    <option>Kerala</option>
+                    <option>Telangana</option>
+                    <option>West bengal</option>
+                </select>
+            </div>
+            
+            <div class="field col-12 md:col-3 form-group">
+                <label for="country" class="form-label" >Country</label>
+                <select id="country"  class="form-control w-full text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round outline-none focus:border-primary" style="appearance: auto"
+                formControlName="country" >
+                        <option>India</option>
+                        <option>USA</option>
+                        <option>Japan</option>
+                        <option>Italy</option>
+                        <option>united Kingdom</option>
+                </select>
+            </div>
+        </div> 
+    </div>
+</form>
+<p-button label="Next" (onClick)="nextPage('Sales/billing')" [disabled]="!contactForm.valid">
+        
+</p-button>
+
+

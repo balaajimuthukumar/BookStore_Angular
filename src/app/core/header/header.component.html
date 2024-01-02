@@ -1,0 +1,14 @@
+<div class="block border-round-sm text-right mb-0 p-0">
+    <!-- <img
+  src="https://flagcdn.com/16x12/ua.png"
+  srcset="https://flagcdn.com/32x24/ua.png 2x,
+    https://flagcdn.com/48x36/ua.png 3x"
+  width="16"
+  height="12"
+  style="margin-top:18px;margin-bottom:8px;margin-right:4px"
+  > -->
+  <span style="text-align: center;" *ngIf="label != 'Login' && label != undefined">Welcome {{ header }},</span>
+  <p-button [label]="label" styleClass="p-button-link" *ngIf="label != 'Login'" (click)="logout()"></p-button>
+    <!-- <button pButton type="button" label="Login" class="p-button-link p-2"></button> -->
+    <!-- <button pButton type="button" label="Register" class="p-button-link p-2"></button> -->
+</div>

@@ -1,0 +1,22 @@
+<p-sidebar [(visible)]="toggleNavigation">
+    <p-button   
+        label="Home" 
+        styleClass="p-button-text w-full text-left"
+        (click)="navigate('Home')"
+    >
+    </p-button>
+    <p-button   
+        label="Purchase" 
+        styleClass="p-button-text w-full text-left"
+        (click)="navigate('Purchase/contact')"
+    >
+    </p-button>
+    <p-button
+        label="Sales" 
+        styleClass="p-button-text w-full text-left"
+        (click)="navigate('Sales/contact')"
+        >
+    </p-button>
+</p-sidebar>
+<!-- <p-panelMenu [model]="panelItems" [style]="{height:'30rem'}" class="align-items-center"></p-panelMenu> -->
+

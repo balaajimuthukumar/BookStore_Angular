@@ -1,0 +1,44 @@
+<h2 class="text-3xl text-center pb-2 font-bold border-bottom-2 border-orange-400">Login</h2>
+<div class="flex flex-row gap-4">
+    <div class="flex flex-column gap-4">
+      <span class="p-float-label mt-4">
+        <input type="text" class="w-full" pInputText [(ngModel)]="email">
+        <label>Email</label>
+      </span>
+      <span class="p-float-label mt-4">
+        <input type="text" class="w-full" pInputText [(ngModel)]="password">
+        <label>Password</label>
+      </span>
+      <div class="flex gap-3 mt-4">
+        <p-button label="Submit" class="text-white" (onClick)="login()"></p-button>
+        <p-button label="Reset" class="text-white"></p-button>
+      </div>
+    </div>
+</div>
+
+<!-- <div class="gird mt-0 mb-0 overflow-hidden h-screen">
+  <div class="col-12 p-0">
+    <div class="grid  mr-4">
+      <div class="col-6">
+        <div class="bg-cover bg-center h-screen" style="background-image: url('https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');"></div>
+      </div>
+      <div class="col-6 mt-8">
+        <h2 class="text-3xl text-center pb-2 font-bold border-bottom-2 border-orange-400">Login</h2>
+        <div class="flex flex-column gap-4">
+          <span class="p-float-label mt-4">
+            <input type="text" class="w-full" pInputText [(ngModel)]="email">
+            <label>Email</label>
+          </span>
+          <span class="p-float-label mt-4">
+            <input type="text" class="w-full" pInputText [(ngModel)]="password">
+            <label>Password</label>
+          </span>
+          <div class="flex gap-3 mt-4">
+            <p-button label="Submit" class="text-white" (onClick)="login()"></p-button>
+            <p-button label="Reset" class="text-white"></p-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

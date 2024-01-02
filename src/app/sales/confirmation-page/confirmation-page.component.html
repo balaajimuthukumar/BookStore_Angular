@@ -1,0 +1,75 @@
+<div class="grid">
+    <div class="col-12">
+        <p class="text-center font-bold text-3xl">Thank You</p>
+        <p class="text-center">Your Order</p>
+    </div>
+    
+    <div class="col-12 m-4"></div>
+    
+    <div class="col-4 ml-3">
+        <h3>Customer Details</h3>
+        <hr>
+        <div class="grid">
+            <div class="col-4">
+            <span class="font-bold">Contact</span>
+            </div>
+            <div class="col-6">
+                <p class="mt-0">{{contactInfromation.contactName}}</p>
+                <p>{{contactInfromation.addressLine1}}</p>
+                <p>{{contactInfromation.addressLine2}}</p>
+                <p>{{contactInfromation.city}} - pincode</p>
+                <p>{{contactInfromation.state}}</p>
+                <p>{{contactInfromation.country}}</p>
+            </div>
+        </div>
+        <hr>
+        <div class="grid">
+            <div class="col-4">
+                <span class="font-bold">Payment Method</span>
+            </div>
+            <div class="col-6">
+                <p class="mt-0">Cash / POS</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-3 ml-3"></div>
+    
+    <div class="col-4 ml-3">
+        <h3>Sale Details</h3>
+        <hr>
+        <p-scrollPanel [style]="{ height: '12rem' }">
+            <div class="grid"
+            *ngFor="let bookItems of billingDetails.salesDetails; let i=index">
+                <div class="col-4">
+                    <span class="font-bold">{{ products[i].title }}</span>
+                    <p>{{bookItems.rate}} x {{bookItems.qty}}</p>
+                </div>
+                <div class="col-6">
+                    <p class="mt-0">{{bookItems.rate * bookItems.qty}}$</p>
+                </div>
+                <!-- <div class="col-4">
+                    <span class="font-bold">Item 2</span>
+                    <p>30$ x 3</p>
+                </div>
+                <div class="col-6">
+                    <p class="mt-0">90$</p>
+                </div>
+                <div class="col-4">
+                    <span class="font-bold">Item 1</span>
+                    <p>30$ x 3</p>
+                </div>
+                <div class="col-6">
+                    <p class="mt-0">90$</p>
+                </div> -->
+            </div>
+        </p-scrollPanel>
+        <hr>
+        <button pButton pRipple label="Generate Invoice" class="bg-orange-600 mt-3" (click)="generatePDF()"></button>
+        <!-- <button pButton pRipple label="Email PDF" class="bg-orange-300 mt-3 ml-3" ></button> -->
+        <p-button label="Back" (onClick)="nextPage('Sales/billing')">
+
+        </p-button>
+    </div>
+</div>
+

@@ -1,0 +1,77 @@
+<div class="col-12">
+  <p class="text-center font-bold text-3xl">Billing</p>
+</div>
+<div class="grid mt-8 mr-5 ml-5 overflow-hidden">
+    <div class="col-12">
+      <div class="card overflow-hidden">
+        <p-table [value]="products" [tableStyle]="{ 'min-width': '50rem','padding-bottom' : '10rem'}">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Books</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Action</th>
+              <th>Amount</th>
+            </tr>
+            <br>
+            <tr>
+              <td>
+                <p-autoComplete [(ngModel)]="selectedItem" [suggestions]="suggestions" (completeMethod)="search($event)" field="title" [dropdown]="true"></p-autoComplete>
+              </td>
+              <td>
+                <span *ngIf="!selectedItem">
+                   $0
+                </span>
+                <span *ngIf="selectedItem">
+                   ${{selectedItem.sellingPrice}}
+                </span>
+            </td>
+              <td>
+                <p-inputNumber inputId="integeronly" [(ngModel)]="value1"> </p-inputNumber>
+              </td>
+              <td>
+                <p-button icon="pi pi-check" [rounded]="true" [text]="true" (onClick)="addtoValue()"></p-button>
+              </td>
+              <td>
+                <span *ngIf="!selectedItem && !value1">
+                  $0
+               </span>
+               <span *ngIf="selectedItem && value1">
+                  ${{selectedItem.sellingPrice * value1}}
+               </span>
+              </td>
+            </tr>
+          </ng-template>
+          
+          <ng-template pTemplate="body" let-product let-index="rowIndex" >
+              <tr>
+                <td>{{ product.title }}</td>
+                <td>{{ product.sellingPrice }}</td>
+                <td>{{ product.quantity }}</td>
+                <td><p-button icon="pi pi-times" [rounded]="true" [text]="true" severity="danger" (onClick)="removetoValue(index)"></p-button></td>
+                <td>{{ product.quantity * product.sellingPrice}}</td>
+              </tr>
+          </ng-template>
+      </p-table>
+      </div>
+    </div>
+  </div>
+  
+    <!-- <div class="grid">
+        <div class="col-12">
+            <label for="firstname1">Firstname</label>
+            <input id="firstname1" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+        </div>
+        <div class="col-12">
+            <label for="lastname1">Lastname</label>
+            <input id="lastname1" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+        </div>
+    </div> -->
+    <p-button label="Back" (onClick)="nextPage('Sales/contact')">
+
+    </p-button>
+    
+    <p-button label="Next" (onClick)="nextPage('Sales/confirmation')">
+        
+    </p-button>
+

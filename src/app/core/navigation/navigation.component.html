@@ -1,0 +1,9 @@
+<p-toolbar>
+    <div class="col-2 p-toolbar-group-start h-2rem" >
+      <p-autoComplete [(ngModel)]="selectedItem" [suggestions]="suggestions" (ngModelChange)="search($event)"
+       placeholder="Search"></p-autoComplete>
+    </div>
+    <div class="p-toolbar-group-end" [style]="{height:'2rem'}">
+      <p-button (click)="toggleSideBar(true)" icon="pi pi-bars" styleClass="surface-400"></p-button>
+    </div>
+</p-toolbar>
