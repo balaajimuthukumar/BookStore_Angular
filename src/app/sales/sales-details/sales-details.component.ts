@@ -47,6 +47,7 @@ export class SalesDetailsComponent {
     this.suggestions= filtered;
   }
 
+  //fetch the book data from the api for populating the data
   getBookDetails(){
     this.http.get(`${this.api.bookURL}`).toPromise().then(data=>{
       this.book=data as any[];
@@ -55,7 +56,6 @@ export class SalesDetailsComponent {
   }
 
   addtoValue(){
-    console.log('selected',this.selectedItem)
     if(this.selectedItem != 'undefined'){
       const book = new BookData(
         this.selectedItem.title,
@@ -73,22 +73,21 @@ export class SalesDetailsComponent {
         this.selectedItem.isbn
       );
       this.saleService.products.push(book);
-      console.log(this.salesformservice.billingItems);
+
       this.salesformservice.billingItems.push(book);
       this.saleService.invoiceAmount += this.selectedItem.sellingPrice * this.selectedItem.quantity;
-      console.log( this.saleService.products);
-      
     } else {
       
     }
-
   }
 
+  //to remove the inserted values from the table in the editable table page
   removetoValue(index:number){
     this.saleService.invoiceAmount -= this.saleService.products[index].sellingPrice;
     this.saleService.products.splice(index,1);
   }
 
+  //routing to the next page - for multi step
   nextPage(page:string){
     this.saleService.completeSales();
     
@@ -96,6 +95,7 @@ export class SalesDetailsComponent {
 
   }
 
+  //routing to the next page - for multi step
   prevPage(page:string){
     this.route.navigate([`/${page}`]);
   }
