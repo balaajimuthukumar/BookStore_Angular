@@ -59,11 +59,8 @@ export class ConfirmationPageComponent {
   //   console.log(this.salesService.products);
   //   return this.salesService.products;
   // }
-
-
   constructor( private emailService:EmailService, private salesService:SalesServiceService, private route: Router,
     private formhandlingService:SalesFormHanlingService){
-    // console.log(this.formhandlingService.billingItems);
     this.products = this.formhandlingService.billingItems;
       console.log(this.products);
       this.contactInfromation = {    
@@ -90,8 +87,6 @@ export class ConfirmationPageComponent {
         }
       this.billingDetails = this.formhandlingService.bllngDetls;console.log(this.formhandlingService.getContactInformation());
       this.contactInfromation = this.formhandlingService.contact;
-      // console.log(this.contactInfromation);
-      // console.log(this.billingDetails);
   }
   
   nextPage(page:string){
@@ -103,30 +98,31 @@ export class ConfirmationPageComponent {
     // console.log(this.products);
   }
 
-  sendEmail() {
-    const emailData = {
-      personalizations: [
-        {          
-        to: [{email: 'mbalaji1995@gmail.com'}],          
-        subject: 'Your Email Subject'        
-        }
-      ],      
-      from: { email: 'mbalaji1995@gmail.com'},      
-      content: [
-        {          
-          type: 'text/plain',
-          value: 'Test Email Content.'
-        }
-      ]
-    };
+  //for send grid api - email operation
+  // sendEmail() {
+  //   const emailData = {
+  //     personalizations: [
+  //       {          
+  //       to: [{email: 'mbalaji1995@gmail.com'}],          
+  //       subject: 'Your Email Subject'        
+  //       }
+  //     ],      
+  //     from: { email: 'mbalaji1995@gmail.com'},      
+  //     content: [
+  //       {          
+  //         type: 'text/plain',
+  //         value: 'Test Email Content.'
+  //       }
+  //     ]
+  //   };
 
-    this.emailService.sendEmail(emailData)
-      .subscribe(response => {
-        console.log('Email sent successfully:', response);
-      }, error => {
-        console.error('Error sending email:', error);
-      });
-  }
+  //   this.emailService.sendEmail(emailData)
+  //     .subscribe(response => {
+  //       console.log('Email sent successfully:', response);
+  //     }, error => {
+  //       console.error('Error sending email:', error);
+  //     });
+  // }
 
 
   generatePDF(action = 'open') {
@@ -143,8 +139,7 @@ export class ConfirmationPageComponent {
     //     }
     //   }
     // );
-    console.log(this.billingDetails);
-    console.log(this.products);
+
     this.billingDetails.salesDetails.forEach(
       (books, index)=>{
         if(!index){
